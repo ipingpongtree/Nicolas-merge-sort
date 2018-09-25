@@ -44,43 +44,46 @@ namespace algorithm
         }
         static void MergeSort()
         {
-            int[] leftArray = new int[] { 1, 3, 5, 6, 9 };
-            int[] rightArray = new int[] { 2, 4, 7, 8 };
-            int[] sortedArray = new int[] { leftArray.Length, rightArray.Length };
+            int[] leftArray = new int[] { 1, 3, 5, 6, 10, 11 };
+            int[] rightArray = new int[] { 2, 4, 7, 8, 9 };
+            int[] sortedArray = new int[11];
             int li = 0;
             int ri = 0;
-            for (int i = 0; i < 9; i++) {
+            for (int i = 0; i < 11; i++)
+            {
                 if (leftArray[li] > rightArray[ri])
                 {
                     sortedArray[i] = rightArray[ri];
                     ri++;
                 }
-                if (rightArray[ri] > leftArray[li])
+                else if (rightArray[ri] > leftArray[li])
                 {
                     sortedArray[i] = leftArray[li];
                     li++;
                 }
-                if (li > leftArray.Length)
+                if (li >= leftArray.Length)
                     break;
-                
-                if (ri > rightArray.Length)
+
+                if (ri >= rightArray.Length)
                     break;
             }
-            
-            if (ri < rightArray.Length) {
-            for (int i = 0, i < rightArray.Length - ri, i++)
-                sortedArray[li + ri + i] = rightArray[ri + i]
+
+            if (ri < rightArray.Length)
+            {
+                for (int i = 0; i < rightArray.Length - ri; i++)
+                    sortedArray[li + ri + i] = rightArray[ri + i];
            }
-            if (li < leftArray.Length) {
-            for (int i = 0, i < leftArray.Length - li, i++)
-                sortedArray[li + ri + i] = leftArray[li + i]
+            if (li < leftArray.Length)
+            {
+                for (int i = 0; i < leftArray.Length - li; i++)
+                    sortedArray[li + ri + i] = leftArray[li + i];
             }
-            
-            for(int i=0; i<9; i++)
+
+            for (int i = 0; i < 11; i++)
             {
                 Console.WriteLine(sortedArray[i]);
-                Console.ReadLine();
             }
+            Console.ReadLine();
         }
     }
 }
